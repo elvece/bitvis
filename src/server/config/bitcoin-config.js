@@ -10,11 +10,13 @@
     const client = new Client({
       network: 'mainnet',
       host: 'localhost',
+      port: 8332,
       username: process.env.USER_NAME,
       password: process.env.PWD
     });
 
-    client.getInfo().then((help) => console.log(help));
+    client.getInfo().then(([body, headers]) => console.log(body, headers));
+
   };
 
 })(module.exports);
